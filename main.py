@@ -32,7 +32,9 @@ def get_marker_transform():
         (-1, 1, 0), (1, 1, 0), (1, -1, 0), (-1, -1, 0)
     ], dtype="double"), corners[0], camera_matrix, dist)
 
-    cv.imshow("detected", cv.aruco.drawDetectedMarkers(image, corners, ids))
+    image = cv.aruco.drawDetectedMarkers(image, corners, ids)
+
+    cv.imshow("image", image)
 
     return rvec.tolist(), tvec.tolist()
 
